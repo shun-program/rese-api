@@ -21,11 +21,24 @@ class ReservationController extends Controller
             "created_at" => $now,
             "updated_at" => $now,
         ];
-        DB::table('users')->insert($param);
+        DB::table('reservations')->insert($param);
         return response()->json([
             'message' => 'Status created successfully',
             'data' => $param
         ], 200);
+    }
+
+    public function get(Request $request)
+    {
+        if ($request->has('user_id')) {
+            $items = DB::table('reservations')->where('user_id', $request->user_id)->get();
+            return response()->json([
+                'message' => 'User got successfully',
+                'data' => $items
+            ], 200);
+        } else {
+            return response()->json(['status' => 'not found'], 404);
+        }
     }
 
     /**

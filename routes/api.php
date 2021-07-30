@@ -20,3 +20,6 @@ Route::delete('/like', [LikesController::class, 'delete']);
 Route::get('/shops', [ShopsController::class, 'get']);
 Route::get('/shops/{shop_id}', [ShopsController::class, 'getDetail']);
 Route::post('/logout', [LogoutController::class, 'post']);
+Route::get('/user/{user_id}/reservations', [ReservationController::class, 'get']);
+
+Route::delete('/reservations', [ReservationController::class, 'delete']);

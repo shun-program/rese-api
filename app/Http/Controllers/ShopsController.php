@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\shops;
+use App\Models\Shop;
 use Illuminate\Support\Facades\DB;
 
 
@@ -20,7 +20,7 @@ class ShopsController extends Controller
 
     public function getDetail($shop_id)
     {
-        $items = Shops::where('shop_id', $shop_id)->first();
+        $items = Shop::where('shop_id', $shop_id)->first();
         return response()->json([
             'message' => 'Shop got successfully',
             'data' => $items
