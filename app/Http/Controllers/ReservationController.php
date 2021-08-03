@@ -28,13 +28,26 @@ class ReservationController extends Controller
         ], 200);
     }
 
-    public function get(Request $request)
+    // public function get(Request $request)
+    // {
+    //     if ($request->has('user_id')) {
+    //         $items = DB::table('reservations')->where('user_id', $request->user_id)->get();
+    //         return response()->json([
+    //             'message' => 'User got successfully',
+    //             'data' => $items
+    //         ], 200);
+    //     } else {
+    //         return response()->json(['status' => 'not found'], 404);
+    //     }
+    // }
+
+    public function get($user_id)
     {
-        if ($request->has('user_id')) {
-            $items = DB::table('reservations')->where('user_id', $request->user_id)->get();
+        if ($user_id) {
+            $item = Reservation::where('user_id', $user_id)->get();
             return response()->json([
                 'message' => 'User got successfully',
-                'data' => $items
+                'item' => $item
             ], 200);
         } else {
             return response()->json(['status' => 'not found'], 404);

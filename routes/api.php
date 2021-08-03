@@ -11,6 +11,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\LogoutController;
 
 Route::apiResource('/reservations', ReservationController::class);
+Route::post('/reservation', [ReservationController::class, 'post']);
 Route::post('/register', [RegisterController::class, 'post']);
 Route::post('/login', [LoginController::class, 'post']);
 Route::get('/user/{user_id}', [UsersController::class, 'get']);
@@ -22,4 +23,4 @@ Route::get('/shops/{shop_id}', [ShopsController::class, 'getDetail']);
 Route::post('/logout', [LogoutController::class, 'post']);
 Route::get('/user/{user_id}/reservations', [ReservationController::class, 'get']);
 
-Route::delete('/reservations', [ReservationController::class, 'delete']);
+// Route::delete('/reservations', [ReservationController::class, 'delete']);

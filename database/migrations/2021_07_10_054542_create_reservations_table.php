@@ -17,9 +17,9 @@ class CreateReservationsTable extends Migration
             $table->id();
             $table->string('shop_id');
             $table->string('user_id');
-            $table->date('reservation_date');
-            $table->time('reservation_time');
-            $table->integer('reservation_number');
+            $table->date('date');
+            $table->time('time');
+            $table->integer('number');
             $table->timestamps();
         });
     }
