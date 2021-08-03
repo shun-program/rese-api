@@ -26,7 +26,6 @@ class ShopsController extends Controller
             'data' => $items
         ], 200);
     }
-
 }
 
 
@@ -56,4 +55,3 @@ class ShopsController extends Controller
 //     }
 //    }
 // }
-

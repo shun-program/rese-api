@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
+
 class ReservationController extends Controller
 {
     public function post(Request $request)
@@ -28,18 +29,6 @@ class ReservationController extends Controller
         ], 200);
     }
 
-    // public function get(Request $request)
-    // {
-    //     if ($request->has('user_id')) {
-    //         $items = DB::table('reservations')->where('user_id', $request->user_id)->get();
-    //         return response()->json([
-    //             'message' => 'User got successfully',
-    //             'data' => $items
-    //         ], 200);
-    //     } else {
-    //         return response()->json(['status' => 'not found'], 404);
-    //     }
-    // }
 
     public function get($user_id)
     {
@@ -53,6 +42,7 @@ class ReservationController extends Controller
             return response()->json(['status' => 'not found'], 404);
         }
     }
+    
 
     /**
      * Store a newly created resource in storage.
