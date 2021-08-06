@@ -10,6 +10,7 @@ use Carbon\Carbon;
 
 class ReservationController extends Controller
 {
+
     public function post(Request $request)
     {
         $now = Carbon::now();

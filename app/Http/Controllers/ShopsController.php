@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\DB;
 class ShopsController extends Controller
 
 {
+    public function index()
+    {
+        $items = Shop::with('area', 'genre')->get();
+        return response()->json([
+            'message' => 'OK',
+            'data' => $items
+        ], 200);
+    }
+
     public function get()
     {
         $items = DB::table('shops')->get();
@@ -26,6 +35,16 @@ class ShopsController extends Controller
             'data' => $items
         ], 200);
     }
+
+      public function show($shop_id){
+        $tags = Shop::where('shop_id', $shop_id)->with('area', 'genre')->get();
+        return response()->json([
+            'message' => 'OK',
+            'data' => $tags
+        ], 200);
+    }
+
+    
 }
 
 
